@@ -12,6 +12,7 @@ int nh,nm,ns,ndy,nmo,nyr,ndw;          // NTP-based time & date variables
 
 boolean updateDisplay = false;
 float ambientBrightness = 1.0;         //default is max brightness
+boolean useLightSensor = false;
 
 void setup() {
   Serial.begin(115200);
@@ -22,7 +23,10 @@ void setup() {
 }
 
 void loop() {
-  loopLightSensor();
+  if (useLightSensor) {
+    loopLightSensor();
+  }
+  
   loopNTP();
   
   if (updateDisplay) {
