@@ -1,5 +1,8 @@
 void setupWiFi() {
-  setupWifiConnectionBlocking();
+  if (!hasDS3231RTC || wifiSetupRequested) {
+    setupWifiConnectionBlocking();
+    wifiSetupRequested = false;
+  }
 }
 
 void setupWifiConnectionBlocking(){
