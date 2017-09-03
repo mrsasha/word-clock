@@ -40,7 +40,9 @@ void check_if_exist_I2C(String sda, String scl) {
       Serial.print("Scanning (SDA : SCL) - " + sda + " : " + scl); Serial.print(" - I2C device found at address 0x"); if (address < 16) Serial.print("0"); Serial.print(address, HEX); Serial.println("!");
       nDevices++;
       if (address == I2C_ADDRESS_DS3231_RTC) hasDS3231RTC = true;
-      if (address == I2C_ADDRESS_DS3231_TEMP) hasDS3231Temp = true;
+      if (address == I2C_ADDRESS_DS3231_TEMP) hasDS3231RTC = true;
+
+      if (hasDS3231RTC) Serial.println("Recognized RTC DS3231 with temperature sensor!");
     } else if (error == 4) {
       Serial.print("Unknown error at address 0x"); if (address < 16) Serial.print("0"); Serial.println(address, HEX);
     }

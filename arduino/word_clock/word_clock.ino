@@ -15,7 +15,6 @@ boolean updateDisplay = false;
 float ambientBrightness = 1.0;         //default is max brightness
 
 boolean hasDS3231RTC = false;
-boolean hasDS3231Temp = false;
 boolean useLightSensor = false;
 
 void setup() {
@@ -26,13 +25,6 @@ void setup() {
   setupLEDs();
   setupWiFi();
   setupNTP();
-
-  if (hasDS3231RTC) {
-    Serial.println("found RTC DS3231!");
-  }
-  if (hasDS3231Temp) {
-    Serial.println("found temperature sensor DS3231!");
-  }
 }
 
 void loop() {
