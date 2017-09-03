@@ -5,6 +5,7 @@
 
 const int LEDS_COUNT = 144;
 const int LEDS_SIDE = 12;
+const int LED_REFRESH_RATE_IN_MS = 1000;
 
 int ch,cm,cs,cdy,cmo,cyr,cdw;          // current time & date variables
 int om = -1;
@@ -34,6 +35,6 @@ void loop() {
     updateDisplay = false;
   }
 
-  delay(1000);
+  delay(LED_REFRESH_RATE_IN_MS);
 }
 
