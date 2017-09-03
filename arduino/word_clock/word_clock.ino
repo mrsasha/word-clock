@@ -11,7 +11,7 @@ int om = -1;
 int nh,nm,ns,ndy,nmo,nyr,ndw;          // NTP-based time & date variables
 
 boolean updateDisplay = false;
-float ambientBrightness = 255;
+float ambientBrightness = 1.0;         //default is max brightness
 
 void setup() {
   Serial.begin(115200);
