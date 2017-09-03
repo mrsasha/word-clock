@@ -8,7 +8,7 @@ void setupWiFi() {
 void setupWifiConnectionBlocking(){
   WiFiManager wifiManager;
   //reset settings - for testing
-  //wifiManager.resetSettings();
+//  wifiManager.resetSettings();
 
   displayWiFi();
 
@@ -20,7 +20,7 @@ void setupWifiConnectionBlocking(){
   //if it does not connect it starts an access point with the specified name
   //here  "WordClock"
   //and goes into a blocking loop awaiting configuration
-  if (!wifiManager.autoConnect("WordClock")) {
+  if (!wifiManager.autoConnect("WordClock", "testing123")) {
     Serial.println("failed to connect and hit timeout");
     //restart and try again, or maybe put it to deep sleep
     ESP.restart();
