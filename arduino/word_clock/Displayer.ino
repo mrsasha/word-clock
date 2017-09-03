@@ -4,6 +4,9 @@ Adafruit_NeoPixel pixels = Adafruit_NeoPixel(LEDS_COUNT, PIXELS_DATA_PIN, NEO_GR
 uint32_t colorOn = pixels.Color(0, 255,255);
 uint32_t colorOff = pixels.Color(0,0,0);
 
+boolean updateDisplay = false;
+DateTime lastDisplayedTime;
+
 void setupLEDs() {
     pixels.begin();
 }
@@ -12,6 +15,13 @@ void displayWiFi() {
   boolean matrix[LEDS_COUNT];
   getWiFiMatrix(matrix);
   display(matrix);
+}
+
+void loopDisplayer() {
+  if (lastDisplayedTime.minute() != getRtcDateTime().minute()) {
+    lastDisplayedTime = getRtcDateTime();
+    displayTime(lastDisplayedTime.hour(), lastDisplayedTime.minute(), lastDisplayedTime.second());
+  }
 }
 
 void displayTime(int h, int m, int s) {

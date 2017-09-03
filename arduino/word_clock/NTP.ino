@@ -5,34 +5,22 @@ const unsigned long NTP_DELAY = 3600000;  // Update time using NTP once every ho
 const unsigned int localPort = 2390;      // local port to listen for UDP packets
 
 WiFiUDP udp;                              // A UDP instance to let us send and receive packets over UDP
-RTC_Millis RTC;                           // RTC (soft)
-DateTime now;                             // current time
 IPAddress timeServerIP;                   // timeserver IP address holder
+DateTime networkTime;
 
 byte packetBuffer[ NTP_PACKET_SIZE];      //buffer to hold incoming and outgoing packets
-boolean doNTP=false;
 unsigned long lastNTPUpdate = 0;
 
 #define min(a,b) ((a)<(b)?(a):(b))        // recreate the min function
 
 void setupNTP() {
-    RTC.begin(DateTime(F(__DATE__), F(__TIME__)));                    // initially set to compile date & time
-    udp.begin(localPort);
+  udp.begin(localPort);
 }
 
 void loopNTP() {
-    getTime();
-    if (millis() > lastNTPUpdate + NTP_DELAY) {
-      doNTP = true;
-    }
-
-    if (cm != om) {                              
-        updateDisplay = true;
-        om = cm;
-    }
-    if (doNTP) {
-        updateTimeFromNTP();
-    }
+  if (millis() > lastNTPUpdate + NTP_DELAY) {
+    updateTimeFromNTP();
+  }
 }
 
 void updateTimeFromNTP() {
@@ -57,29 +45,10 @@ void updateTimeFromNTP() {
     int tz = -1;                                                        // adjust for EST time zone
     DateTime gt(epoch - (tz*60*60));                                    // obtain date & time based on NTP-derived epoch...
     tz = IsDST(gt.month(), gt.day(), gt.dayOfTheWeek())?-2:-1;          // if in DST correct for GMT-4 hours else GMT-5
-    DateTime ntime(epoch - (tz*60*60));                                 // if in DST correct for GMT-4 hours else GMT-5
-    RTC.adjust(ntime);                                                  // and set RTC to correct local time   
-    doNTP = false;
+    networkTime = DateTime(epoch - (tz*60*60));
+    updateRTCs(networkTime);
+    showDate("networkTime:", networkTime);
     lastNTPUpdate = millis();
-    
-    // ---------------- What follows is just for debug ----------------
-    nyr = ntime.year()-2000;                       
-    nmo = ntime.month();
-    ndy = ntime.day();    
-    nh  = ntime.hour(); if(nh==0) nh=24;                   // adjust to 1-24            
-    nm  = ntime.minute();                     
-    ns  = ntime.second();                     
-
-    Serial.print(F("... NTP packet local time: [GMT - ")); Serial.print(tz); Serial.print(F("]: "));        // Local time at Greenwich Meridian (GMT) - offset  
-    if(nh < 10) Serial.print(F(" ")); Serial.print(nh);  Serial.print(F(":"));                              // print the hour 
-    if(nm < 10) Serial.print(F("0")); Serial.print(nm);  Serial.print(F(":"));                              // print the minute
-    if(ns < 10) Serial.print(F("0")); Serial.print(ns);                                                     // print the second
-
-    Serial.print(F(" on "));                                                                                // Local date
-    if(nyr < 10) Serial.print(F("0")); Serial.print(nyr);  Serial.print(F("/"));                            // print the year 
-    if(nmo < 10) Serial.print(F("0")); Serial.print(nmo);  Serial.print(F("/"));                            // print the month
-    if(ndy < 10) Serial.print(F("0")); Serial.println(ndy);                                                 // print the day
-    Serial.println();
   }
 }
 
@@ -108,16 +77,16 @@ unsigned long sendNTPpacket(IPAddress& address) {
 }
 
 // getTime(): get current time from RTC (soft or hard)
-void getTime() { 
-  now = RTC.now();  
-  ch = min(24,now.hour()); if(ch == 0) ch=24; // hours 1-24
-  cm = min(59,now.minute()); 
-  cs = min(59,now.second());
-  cdy= min(31,now.day()); 
-  cmo= min(now.month(),12); 
-  cyr= min(99,now.year()-2000); 
-  cdw =now.dayOfTheWeek();
-}
+//void getTime() { 
+//  DateTime now = getRtcDateTime();  
+//  ch = min(24,now.hour()); if(ch == 0) ch=24; // hours 1-24
+//  cm = min(59,now.minute()); 
+//  cs = min(59,now.second());
+//  cdy= min(31,now.day()); 
+//  cmo= min(now.month(),12); 
+//  cyr= min(99,now.year()-2000); 
+//  cdw =now.dayOfTheWeek();
+//}
 
 // IsDST(): returns true if during DST, false otherwise
 boolean IsDST(int mo, int dy, int dw) {
