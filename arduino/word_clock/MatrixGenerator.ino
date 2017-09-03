@@ -1,8 +1,22 @@
 #include <stdexcept>
 
+//      LETTER MATRIX
+//      *************
+// 01:  PItYUisBSten *
+// 02:  halfVquarter *
+// 03:  LtwentyfiveF
+// 04:  topastKtwone
+// 05:  sevensixfour
+// 06:  fivelevenine
+// 07:  tenthreeight
+// 08:  pmidnightDam
+// 09:
+// 10:
+// 11:
+// 12:
 
-boolean E_[] = {
-  false,  true, false, false, false, false, false, false, false, false, false, false,
+boolean IT_S[] = {
+  false, true,  true,  false, false, true,  true,  false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
@@ -16,28 +30,13 @@ boolean E_[] = {
   false, false, false, false, false, false, false, false, false, false, false, false,
 };
 
-boolean SONO[] = {
-  false, false,  true,  true,  true,  true, false, false, false, false, false, false,
+boolean ONE[] = {
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-};
-
-boolean L_UNA[] = {
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false,  true,  true,  true,  true, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false,  true,  true,  true, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
@@ -46,28 +45,13 @@ boolean L_UNA[] = {
   false, false, false, false, false, false, false, false, false, false, false, false,
 };
 
-boolean LE[] = {
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false,  true,  true, false, false, false, false, false, false, false,
+boolean TWO[] = {
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-};
-
-boolean DUE[] = {
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false,  true,  true,  true, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false,  true,  true,  true, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
@@ -76,8 +60,22 @@ boolean DUE[] = {
   false, false, false, false, false, false, false, false, false, false, false, false,
 };
 
-boolean TRE[] = {
+boolean THREE[] = {
   false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false,  true,  true,  true,  true,  true,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+};
+
+boolean FOUR[] = {
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
@@ -89,24 +87,220 @@ boolean TRE[] = {
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
-};
-
-boolean QUATTRO[] = {
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false,  true,  true,  true,  true,  true,  true,  true, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
 };
 
-boolean CINQUE[] = {
+boolean FIVE[] = {
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false,  true,  true,  true,  true, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+};
+
+boolean SIX[] = {
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false,  true,  true,  true, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+};
+
+boolean SEVEN[] = {
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false,  true,  true,  true,  true,  true, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+};
+
+boolean EIGHT[] = {
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false,  true,  true,  true,  true,  true, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+};
+
+boolean NINE[] = {
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false,  true,  true,  true,  true, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+};
+
+boolean TEN[] = {
+  false, false, false, false, false, false, false, false, false, true, true, true,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+};
+
+boolean ELEVEN[] = {
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false,  true,  true,  true,  true,  true,  true, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+};
+
+boolean NOON[] = {
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false,  false,  false,  false,  false,  false,  false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+};
+
+boolean MIDNIGHT[] = {
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false,  false,  false,  false,  false,  false,  false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+};
+
+boolean PAST[] = {
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false,  true,  true,  true,  true, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+};
+
+boolean TO[] = {
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false,  true,  true, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+};
+
+boolean MIN_FIVE[] = {
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false,  true,  true,  true,  true, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+};
+
+boolean MIN_TEN[] = {
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false,  true,  true,  true, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+};
+
+boolean MIN_A_QUARTER[] = {
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, true,  false, false, false, false, true,  true,  true,  true,  true,  true,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+};
+
+boolean MIN_TWENTY[] = {
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
@@ -121,72 +315,12 @@ boolean CINQUE[] = {
   false, false, false, false, false, false, false, false, false, false, false, false,
 };
 
-boolean SEI[] = {
+boolean MIN_HALF[] = {
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  true,  true,  true,  true,  false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false,  true,  true,  true, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-};
-
-boolean SETTE[] = {
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false,  true,  true,  true,  true,  true, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-};
-
-boolean OTTO[] = {
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false,  true,  true,  true,  true, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-};
-
-boolean NOVE[] = {
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false,  true,  true,  true,  true, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-};
-
-boolean DIECI[] = {
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false,  true,  true,  true,  true,  true, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
@@ -196,13 +330,28 @@ boolean DIECI[] = {
   false, false, false, false, false, false, false, false, false, false, false, false,
 };
 
-boolean UNDICI[] = {
+boolean O_CLOCK[] = {
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false,  true,  true,  true,  true,  true,  true, 
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false,  true,  true,  true,  true,  true,  true, false,
+};
+
+boolean AM[] = {
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
+  false,  false,  false, false, false, false, false, false, false, false, false, false,
+  false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
@@ -211,123 +360,18 @@ boolean UNDICI[] = {
   false, false, false, false, false, false, false, false, false, false, false, false,
 };
 
-boolean DODICI[] = {
+boolean PM[] = {
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false,  true,  true,  true,  true,  true,  true, 
+  false,  false,  false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-};
-
-boolean E[] = {
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false,  true, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-};
-
-boolean MENO[] = {
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false,  true,  true,  true,  true, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-};
-
-boolean MIN_CINQUE[] = {
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false,  true,  true,  true,  true,  true,  true, false,  
-};
-
-boolean MIN_DIECI[] = {
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false,  true,  true,  true,  true,  true, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-};
-
-boolean MIN_UN_QUARTO[] = {
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false,  true,  true, false,  true,  true,  true,  true,  true,  true, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-};
-
-boolean MIN_VENTI[] = {
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-   true,  true,  true,  true,  true, false, false, false, false, false, false, false,  
-};
-
-boolean MIN_MEZZA[] = {
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false,  true,  true,  true,  true,  true, false,
   false, false, false, false, false, false, false, false, false, false, false, false,
 };
 
@@ -352,24 +396,19 @@ void getWiFiMatrix(boolean matrix[]) {
 }
 
 void getTimeMatrix(boolean matrix[], int h, int m, int s) {
-  Serial.print(F("Time: "));   Serial.print(h);  Serial.print(F(":")); if(m < 10) Serial.print("0");  Serial.print(m);  Serial.print(F(":")); if(s <10) Serial.print("0");  Serial.print(s);
+  String timeString;
+  
   Serial.println("");
+  Serial.print(F("Time: "));   Serial.print(h);  Serial.print(F(":")); if(m < 10) Serial.print("0");  Serial.print(m);  Serial.print(F(":")); if(s <10) Serial.print("0");  Serial.print(s);
 
   reset(matrix);
-  addPrefix(matrix, h%12, m);
-  addHours(matrix, h%12, m);
-  addSeparator(matrix, m);
-  addMinutes(matrix, m);
-
-  String time = "";
-  if(h < 10) time+=" "; time+=h;   
-  time+=":"; if(m < 10) time+="0"; time+=m;
-
-  String timeString;
-  timeString += h%12 == 1 ? "E' l'" : "Sono le "; 
-  timeString += getHour(m > 35 ? (h+1)%12 : h%12);
-  timeString += getSeparator(m);
-  timeString += getMinutes(m);
+  //we combine the matrix and logging string at the same time!    
+  timeString += addPrefix(matrix, m, h);
+  timeString += addMinutes(matrix, m);
+  timeString += addSeparator(matrix, m);
+  timeString += addHours(matrix, m, h);  
+  timeString += addSuffix(matrix, m, h);
+  
   Serial.println("");Serial.print(F("Words: ")); Serial.print(timeString);
   Serial.println("");Serial.println("");
 }
@@ -380,68 +419,121 @@ void reset(boolean matrix[]) {
   }
 }
 
-void addPrefix(boolean matrix[], int hour, int minutes) {
-  if ((hour == 1 && minutes <= 35)|| (hour == 0 && minutes > 35)) {
-    combine(matrix, E_);  
-  } else {
-    combine(matrix, SONO); 
-    combine(matrix, LE);  
-  }
+String addPrefix(boolean matrix[], int minutes, int hours) {
+  combine(matrix, IT_S);  
+  return "It is ";
 }
 
-void addHours(boolean matrix[], int hour, int minutes) {
-  int displayedHour = hour;
+String addHours(boolean matrix[], int minutes, int hours) {
+  String hourString;
+  int displayedHour = hours;
   if (minutes >= 35) {
     displayedHour++;
   } 
-  if (displayedHour == 1) combine(matrix, L_UNA);
-  else if (displayedHour == 2) combine(matrix, DUE);
-  else if (displayedHour == 3) combine(matrix, TRE);
-  else if (displayedHour == 4) combine(matrix, QUATTRO);
-  else if (displayedHour == 5) combine(matrix, CINQUE);
-  else if (displayedHour == 6) combine(matrix, SEI);
-  else if (displayedHour == 7) combine(matrix, SETTE);
-  else if (displayedHour == 8) combine(matrix, OTTO);
-  else if (displayedHour == 9) combine(matrix, NOVE);
-  else if (displayedHour == 10) combine(matrix, DIECI);
-  else if (displayedHour == 11) combine(matrix, UNDICI);
-  else if (displayedHour == 12 || displayedHour == 0) combine(matrix, DODICI);
+  
+  if (displayedHour == 0 || displayedHour == 24) {
+    combine(matrix, MIDNIGHT);
+    hourString = "midnight";
+  } else if (displayedHour == 1 || displayedHour == 13) {
+    combine(matrix, ONE);
+    hourString = "one";
+  } else if (displayedHour == 2 || displayedHour == 14) {
+    combine(matrix, TWO);
+    hourString = "two";
+  } else if (displayedHour == 3 || displayedHour == 15) {
+    combine(matrix, THREE);
+    hourString = "three";
+  } else if (displayedHour == 4 || displayedHour == 16) {
+    combine(matrix, FOUR);
+    hourString = "four";
+  } else if (displayedHour == 5 || displayedHour == 17) {
+    combine(matrix, FIVE);
+    hourString = "five";
+  } else if (displayedHour == 6 || displayedHour == 18) {
+    combine(matrix, SIX);
+    hourString = "six";
+  } else if (displayedHour == 7 || displayedHour == 19) {
+    combine(matrix, SEVEN);
+    hourString = "seven";
+  } else if (displayedHour == 8 || displayedHour == 20) {
+    combine(matrix, EIGHT);
+    hourString = "eight";
+  } else if (displayedHour == 9 || displayedHour == 21) {
+    combine(matrix, NINE);
+    hourString = "nine";
+  } else if (displayedHour == 10 || displayedHour == 22) {
+    combine(matrix, TEN);
+    hourString = "ten";
+  } else if (displayedHour == 11 || displayedHour == 24) {
+    combine(matrix, ELEVEN);
+    hourString = "eleven";
+  } else if (displayedHour == 12) {
+    combine(matrix, NOON);
+    hourString = "noon";
+  }
+
+  return hourString;
 }
 
-void addSeparator(boolean matrix[], int minutes) {
+String addSeparator(boolean matrix[], int minutes) {
   if (minutes < 5) {
-    return;
-  }
-  if (minutes < 35) {
-    combine(matrix, E);
+    return " ";
+  } else if (minutes < 35) {
+    combine(matrix, PAST);
+    return " past ";
   } else {
-    combine(matrix, MENO);
+    combine(matrix, TO);
+    return " to ";
   }
 }
 
-void addMinutes(boolean matrix[], int minutes) {
+String addMinutes(boolean matrix[], int minutes) {
   if (minutes < 5) {
-    return;
+    //do nothing
+    return "";
+  } else if (minutes < 10 || minutes >= 55) {
+    combine(matrix, MIN_FIVE);
+    return "five";
+  } else if (minutes < 15 || minutes >= 50) {
+    combine(matrix, MIN_TEN);
+    return "ten";
+  } else if (minutes < 20 || minutes >= 45) {
+    combine(matrix, MIN_A_QUARTER);
+    return "a quarter";
+  } else if (minutes < 25 || minutes >= 40) {
+    combine(matrix, MIN_TWENTY);
+    return "twenty";
+  } else if (minutes < 30 || minutes >= 35) {
+    combine(matrix, MIN_TWENTY);
+    combine(matrix, MIN_FIVE);
+    return "twenty five";
+  } else if (minutes >= 30 || minutes < 35){
+    combine(matrix, MIN_HALF);
+    return "half";
   }
-  if (minutes < 10 || minutes >= 55) {
-    combine(matrix, MIN_CINQUE);
+}
+
+String addSuffix(boolean matrix[], int minutes, int hours) {
+  String suffix;
+  int displayedHour = hours;
+  if (minutes >= 35) {
+    displayedHour++;
+  } 
+  
+  if (minutes < 5) {
+    combine(matrix, O_CLOCK);
+    suffix += " o'clock";
   }
-  else if (minutes < 15 || minutes >= 50) {
-    combine(matrix, MIN_DIECI);
+  
+  if (displayedHour > 0 && displayedHour < 12) {
+    combine(matrix, AM);
+    suffix += " am";
+  } else if (displayedHour > 12 && displayedHour < 24) {
+    combine(matrix, PM);
+    suffix += " pm";
   }
-  else if (minutes < 20 || minutes >= 45) {
-    combine(matrix, MIN_UN_QUARTO);
-  }
-  else if (minutes < 25 || minutes >= 40) {
-    combine(matrix, MIN_VENTI);
-  }
-  else if (minutes < 30 || minutes >= 35) {
-    combine(matrix, MIN_VENTI);
-    combine(matrix, MIN_CINQUE);
-  }
-  else {
-    combine(matrix, MIN_MEZZA);
-  }
+
+  return suffix;
 }
 
 void combine(boolean result[], boolean other[]) {
@@ -449,51 +541,3 @@ void combine(boolean result[], boolean other[]) {
     result[i] = result[i] || other[i];
   }
 }
-
-String getHour(int hour) {
-  if (hour == 1) return "una";
-  if (hour == 2) return "due";
-  if (hour == 3) return "tre";
-  if (hour == 4) return "quattro";
-  if (hour == 5) return "cinque";
-  if (hour == 6) return "sei";
-  if (hour == 7) return "sette";
-  if (hour == 8) return "otto";
-  if (hour == 9) return "nove";
-  if (hour == 10) return "dieci";
-  if (hour == 11) return "undici";
-  if (hour == 12 || hour == 0) return "dodici";
-}
-
-String getSeparator(int minutes) {
-  if (minutes < 5) {
-      return "";
-  }
-  if (minutes < 35) {
-      return " e ";
-  }
-  return " meno ";
-}
-
-String getMinutes(int minutes) {
-  if (minutes < 5) {
-    return "";
-  }
-  if (minutes < 10 || minutes >= 55) {
-    return "cinque";
-  }
-  if (minutes < 15 || minutes >= 50) {
-    return "dieci";
-  }
-  if (minutes < 20 || minutes >= 45) {
-    return "un quarto";
-  }
-  if (minutes < 25 || minutes >= 40) {
-    return "venti";
-  }
-  if (minutes < 30 || minutes >= 35) {
-    return "venticinque";
-  }
-  return "mezza";
-}
-
