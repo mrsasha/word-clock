@@ -10,10 +10,10 @@
 // 06:  fivelevenine
 // 07:  tenthreeight
 // 08:  pmidnightDam
-// 09:
-// 10:
-// 11:
-// 12:
+// 09:  noonXXXXXXXX
+// 10:  XXXXXXXXXXXX
+// 11:  XXXXXXXXXXXX
+// 12:  XXXXXXXXXXXX
 
 boolean IT_S[] = {
   false, true,  true,  false, false, true,  true,  false, false, false, false, false,
@@ -520,7 +520,7 @@ String addSuffix(boolean matrix[], int minutes, int hours) {
     displayedHour++;
   } 
   
-  if (minutes < 5) {
+  if (minutes < 5 && displayedHour != 00 && displayedHour != 12 && displayedHour != 24) {
     combine(matrix, O_CLOCK);
     suffix += " o'clock";
   }
