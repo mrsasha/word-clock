@@ -6,9 +6,7 @@ const int NTP_PACKET_SIZE = 48; // NTP time stamp is in the first 48 bytes of th
 byte packetBuffer[ NTP_PACKET_SIZE]; //buffer to hold incoming and outgoing packets
 boolean doNTP=false;
 
-// A UDP instance to let us send and receive packets over UDP
-WiFiUDP udp;
-
+WiFiUDP udp;                              // A UDP instance to let us send and receive packets over UDP
 RTC_Millis RTC;                           // RTC (soft)
 DateTime now;                             // current time
 
@@ -16,9 +14,6 @@ const unsigned long NTP_DELAY = 3600000;  // Update time using NTP once every ho
 unsigned long lastNTPUpdate = 0;
 
 #define min(a,b) ((a)<(b)?(a):(b))        // recreate the min function
-#define sp    Serial.print
-#define spf   Serial.printf
-#define spln  Serial.println
 
 void setupNTP() {
     RTC.begin(DateTime(F(__DATE__), F(__TIME__)));    // initially set to compile date & time
@@ -48,9 +43,9 @@ void updateTimeFromNTP() {
 
   int cb = udp.parsePacket();           // get packet (if available)
   if (!cb) {
-    spln(F("... no packet yet"));
+    Serial.println(F("... no packet yet"));
   } else {
-    sp(F("... NTP packet received with ")); sp(cb); spln(F(" bytes"));     // We've received a packet, read the data from it
+    Serial.print(F("... NTP packet received with ")); Serial.print(cb); Serial.println(F(" bytes"));     // We've received a packet, read the data from it
     udp.read(packetBuffer, NTP_PACKET_SIZE);                            // read the packet into the buffer
 
     unsigned long highWord = word(packetBuffer[40], packetBuffer[41]);  // timestamp starts at byte 40 of packet. It is 2 words (4 bytes) long
@@ -76,16 +71,16 @@ void updateTimeFromNTP() {
     nm  = ntime.minute();                     
     ns  = ntime.second();                     
 
-    sp(F("... NTP packet local time: [GMT - ")); sp(tz); sp(F("]: "));       // Local time at Greenwich Meridian (GMT) - offset  
-    if(nh < 10) sp(F(" ")); sp(nh);  sp(F(":"));          // print the hour 
-    if(nm < 10) sp(F("0")); sp(nm);  sp(F(":"));          // print the minute
-    if(ns < 10) sp(F("0")); sp(ns);                       // print the second
+    Serial.print(F("... NTP packet local time: [GMT - ")); Serial.print(tz); Serial.print(F("]: "));       // Local time at Greenwich Meridian (GMT) - offset  
+    if(nh < 10) Serial.print(F(" ")); Serial.print(nh);  Serial.print(F(":"));          // print the hour 
+    if(nm < 10) Serial.print(F("0")); Serial.print(nm);  Serial.print(F(":"));          // print the minute
+    if(ns < 10) Serial.print(F("0")); Serial.print(ns);                       // print the second
 
-    sp(F(" on "));                                        // Local date
-    if(nyr < 10) sp(F("0")); sp(nyr);  sp(F("/"));        // print the year 
-    if(nmo < 10) sp(F("0")); sp(nmo);  sp(F("/"));        // print the month
-    if(ndy < 10) sp(F("0")); spln(ndy);                   // print the day
-    spln();
+    Serial.print(F(" on "));                                        // Local date
+    if(nyr < 10) Serial.print(F("0")); Serial.print(nyr);  Serial.print(F("/"));        // print the year 
+    if(nmo < 10) Serial.print(F("0")); Serial.print(nmo);  Serial.print(F("/"));        // print the month
+    if(ndy < 10) Serial.print(F("0")); Serial.println(ndy);                   // print the day
+    Serial.println();
   }
 }
 

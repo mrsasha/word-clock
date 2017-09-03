@@ -1,8 +1,5 @@
 #define PIXELS_DATA_PIN D2
 
-#define sp    Serial.print
-#define spln  Serial.println
-
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(LEDS_COUNT, PIXELS_DATA_PIN, NEO_GRB + NEO_KHZ800);
 uint32_t colorOn = pixels.Color(0, 255,255);
 uint32_t colorOff = pixels.Color(0,0,0);
@@ -33,9 +30,9 @@ void display(boolean matrix[]) {
 
 void logMatrix(boolean matrix[]) {
   for (int i=0; i<LEDS_COUNT; i++) {
-    sp(matrix[i] ? "X" : "_"); sp(" ");
+    Serial.print(matrix[i] ? "X" : "_"); Serial.print(" ");
     if (i % LEDS_SIDE == LEDS_SIDE-1) {
-      spln();
+      Serial.println();
     }
   }
 }
