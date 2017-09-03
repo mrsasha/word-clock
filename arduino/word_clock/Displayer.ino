@@ -28,6 +28,7 @@ void displayTime(int h, int m, int s) {
   boolean matrix[LEDS_COUNT];
   getTimeMatrix(matrix, h, m, s);
   display(matrix);
+  displayUpdated = true;
 }
 
 void display(boolean matrix[]) {

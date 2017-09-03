@@ -5,16 +5,18 @@
 
 const int LEDS_COUNT = 144;
 const int LEDS_SIDE = 12;
-const int LED_REFRESH_RATE_IN_MS = 12000;
+const int LED_REFRESH_RATE_IN_MS = 2000;
 const int WIFI_SETUP_BUTTON_PIN = 0; 
 
 float ambientBrightness = 1.0;         //default is max brightness
 
 boolean wifiSetupRequested = false;    //TODO Wifi setup button
 boolean useLightSensor = false;        //TODO how to automatically check light sensor data and enable it if correct?
+boolean displayUpdated = false;
 
 void setup() {
   Serial.begin(115200);
+  pinMode(LED_BUILTIN, OUTPUT);         // Initialize the output led
   pinMode(WIFI_SETUP_BUTTON_PIN, INPUT);// Initialize the WIFI setup button 
 
   scanPorts();
@@ -49,6 +51,13 @@ void loop() {
 
   loopNTP();
   loopDisplayer();
+
+  if (displayUpdated) {
+    displayUpdated = false;
+    digitalWrite(LED_BUILTIN, LOW);
+  } else {
+    digitalWrite(LED_BUILTIN, HIGH);
+  }
 
   delay(LED_REFRESH_RATE_IN_MS);
 }
