@@ -1,22 +1,22 @@
-unsigned int localPort = 2390;      // local port to listen for UDP packets
-
-IPAddress timeServerIP; 
 const char* ntpServerName = "time.nist.gov";
-const int NTP_PACKET_SIZE = 48; // NTP time stamp is in the first 48 bytes of the message
-byte packetBuffer[ NTP_PACKET_SIZE]; //buffer to hold incoming and outgoing packets
-boolean doNTP=false;
+const int NTP_PACKET_SIZE = 48;           // NTP time stamp is in the first 48 bytes of the message
+const int NTP_PACKET_WAIT_TIME = 3000;    // how much to wait for the NTP reply
+const unsigned long NTP_DELAY = 3600000;  // Update time using NTP once every hour
+const unsigned int localPort = 2390;      // local port to listen for UDP packets
 
 WiFiUDP udp;                              // A UDP instance to let us send and receive packets over UDP
 RTC_Millis RTC;                           // RTC (soft)
 DateTime now;                             // current time
+IPAddress timeServerIP;                   // timeserver IP address holder
 
-const unsigned long NTP_DELAY = 3600000;  // Update time using NTP once every hour
+byte packetBuffer[ NTP_PACKET_SIZE];      //buffer to hold incoming and outgoing packets
+boolean doNTP=false;
 unsigned long lastNTPUpdate = 0;
 
 #define min(a,b) ((a)<(b)?(a):(b))        // recreate the min function
 
 void setupNTP() {
-    RTC.begin(DateTime(F(__DATE__), F(__TIME__)));    // initially set to compile date & time
+    RTC.begin(DateTime(F(__DATE__), F(__TIME__)));                    // initially set to compile date & time
     udp.begin(localPort);
 }
 
@@ -36,10 +36,9 @@ void loopNTP() {
 }
 
 void updateTimeFromNTP() {
-  //get a random server from the pool
-  WiFi.hostByName(ntpServerName, timeServerIP); 
-  sendNTPpacket(timeServerIP);            // send an NTP packet to a time server
-  delay(1000);                          // wait to see if a reply is available
+  WiFi.hostByName(ntpServerName, timeServerIP);                         //get a random server from the pool
+  sendNTPpacket(timeServerIP);                                          // send an NTP packet to a time server
+  delay(NTP_PACKET_WAIT_TIME);                                          // wait to see if a reply is available
 
   int cb = udp.parsePacket();           // get packet (if available)
   if (!cb) {
@@ -55,11 +54,11 @@ void updateTimeFromNTP() {
     const unsigned long seventyYears = 2208988800UL;                    // Unix time starts on Jan 1 1970. In seconds, that's 2208988800:
     unsigned long epoch = secsSince1900 - seventyYears;                 // subtract seventy years to get to 1 Jan. 1900:
 
-    int tz = -1;                                            // adjust for EST time zone
-    DateTime gt(epoch - (tz*60*60));                       // obtain date & time based on NTP-derived epoch...
-    tz = IsDST(gt.month(), gt.day(), gt.dayOfTheWeek())?-2:-1;  // if in DST correct for GMT-4 hours else GMT-5
-    DateTime ntime(epoch - (tz*60*60));                    // if in DST correct for GMT-4 hours else GMT-5
-    RTC.adjust(ntime);    // and set RTC to correct local time   
+    int tz = -1;                                                        // adjust for EST time zone
+    DateTime gt(epoch - (tz*60*60));                                    // obtain date & time based on NTP-derived epoch...
+    tz = IsDST(gt.month(), gt.day(), gt.dayOfTheWeek())?-2:-1;          // if in DST correct for GMT-4 hours else GMT-5
+    DateTime ntime(epoch - (tz*60*60));                                 // if in DST correct for GMT-4 hours else GMT-5
+    RTC.adjust(ntime);                                                  // and set RTC to correct local time   
     doNTP = false;
     lastNTPUpdate = millis();
     
@@ -71,15 +70,15 @@ void updateTimeFromNTP() {
     nm  = ntime.minute();                     
     ns  = ntime.second();                     
 
-    Serial.print(F("... NTP packet local time: [GMT - ")); Serial.print(tz); Serial.print(F("]: "));       // Local time at Greenwich Meridian (GMT) - offset  
-    if(nh < 10) Serial.print(F(" ")); Serial.print(nh);  Serial.print(F(":"));          // print the hour 
-    if(nm < 10) Serial.print(F("0")); Serial.print(nm);  Serial.print(F(":"));          // print the minute
-    if(ns < 10) Serial.print(F("0")); Serial.print(ns);                       // print the second
+    Serial.print(F("... NTP packet local time: [GMT - ")); Serial.print(tz); Serial.print(F("]: "));        // Local time at Greenwich Meridian (GMT) - offset  
+    if(nh < 10) Serial.print(F(" ")); Serial.print(nh);  Serial.print(F(":"));                              // print the hour 
+    if(nm < 10) Serial.print(F("0")); Serial.print(nm);  Serial.print(F(":"));                              // print the minute
+    if(ns < 10) Serial.print(F("0")); Serial.print(ns);                                                     // print the second
 
-    Serial.print(F(" on "));                                        // Local date
-    if(nyr < 10) Serial.print(F("0")); Serial.print(nyr);  Serial.print(F("/"));        // print the year 
-    if(nmo < 10) Serial.print(F("0")); Serial.print(nmo);  Serial.print(F("/"));        // print the month
-    if(ndy < 10) Serial.print(F("0")); Serial.println(ndy);                   // print the day
+    Serial.print(F(" on "));                                                                                // Local date
+    if(nyr < 10) Serial.print(F("0")); Serial.print(nyr);  Serial.print(F("/"));                            // print the year 
+    if(nmo < 10) Serial.print(F("0")); Serial.print(nmo);  Serial.print(F("/"));                            // print the month
+    if(ndy < 10) Serial.print(F("0")); Serial.println(ndy);                                                 // print the day
     Serial.println();
   }
 }
