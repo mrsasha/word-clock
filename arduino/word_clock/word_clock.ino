@@ -13,14 +13,26 @@ int nh,nm,ns,ndy,nmo,nyr,ndw;          // NTP-based time & date variables
 
 boolean updateDisplay = false;
 float ambientBrightness = 1.0;         //default is max brightness
+
+boolean hasDS3231RTC = false;
+boolean hasDS3231Temp = false;
 boolean useLightSensor = false;
 
 void setup() {
   Serial.begin(115200);
+
+  scanPorts();
   
   setupLEDs();
   setupWiFi();
   setupNTP();
+
+  if (hasDS3231RTC) {
+    Serial.println("found RTC DS3231!");
+  }
+  if (hasDS3231Temp) {
+    Serial.println("found temperature sensor DS3231!");
+  }
 }
 
 void loop() {
