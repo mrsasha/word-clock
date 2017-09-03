@@ -15,7 +15,7 @@ void setupWifiConnectionBlocking(){
 
   //fetches ssid and pass and tries to connect
   //if it does not connect it starts an access point with the specified name
-  //here  "AutoConnectAP"
+  //here  "WordClock"
   //and goes into a blocking loop awaiting configuration
   if (!wifiManager.autoConnect("WordClock")) {
     Serial.println("failed to connect and hit timeout");
