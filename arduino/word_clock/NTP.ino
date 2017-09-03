@@ -8,7 +8,7 @@ WiFiUDP udp;                              // A UDP instance to let us send and r
 IPAddress timeServerIP;                   // timeserver IP address holder
 DateTime networkTime;
 
-byte packetBuffer[ NTP_PACKET_SIZE];      //buffer to hold incoming and outgoing packets
+byte packetBuffer[ NTP_PACKET_SIZE];      // buffer to hold incoming and outgoing packets
 unsigned long lastNTPUpdate = 0;
 
 #define min(a,b) ((a)<(b)?(a):(b))        // recreate the min function
@@ -75,18 +75,6 @@ unsigned long sendNTPpacket(IPAddress& address) {
   udp.write(packetBuffer, NTP_PACKET_SIZE);
   udp.endPacket();
 }
-
-// getTime(): get current time from RTC (soft or hard)
-//void getTime() { 
-//  DateTime now = getRtcDateTime();  
-//  ch = min(24,now.hour()); if(ch == 0) ch=24; // hours 1-24
-//  cm = min(59,now.minute()); 
-//  cs = min(59,now.second());
-//  cdy= min(31,now.day()); 
-//  cmo= min(now.month(),12); 
-//  cyr= min(99,now.year()-2000); 
-//  cdw =now.dayOfTheWeek();
-//}
 
 // IsDST(): returns true if during DST, false otherwise
 boolean IsDST(int mo, int dy, int dw) {
