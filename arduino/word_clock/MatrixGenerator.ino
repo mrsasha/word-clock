@@ -1,8 +1,5 @@
 #include <stdexcept>
 
-#define sp    Serial.print
-#define spf   Serial.printf
-#define spln  Serial.println
 
 boolean E_[] = {
   false,  true, false, false, false, false, false, false, false, false, false, false,
@@ -355,8 +352,8 @@ void getWiFiMatrix(boolean matrix[]) {
 }
 
 void getTimeMatrix(boolean matrix[], int h, int m, int s) {
-  sp(F("Time: "));   sp(h);  sp(F(":")); if(m < 10) sp("0");  sp(m);  sp(F(":")); if(s <10) sp("0");  sp(s);
-  spln("");
+  Serial.print(F("Time: "));   Serial.print(h);  Serial.print(F(":")); if(m < 10) Serial.print("0");  Serial.print(m);  Serial.print(F(":")); if(s <10) Serial.print("0");  Serial.print(s);
+  Serial.println("");
 
   reset(matrix);
   addPrefix(matrix, h%12, m);
@@ -373,8 +370,8 @@ void getTimeMatrix(boolean matrix[], int h, int m, int s) {
   timeString += getHour(m > 35 ? (h+1)%12 : h%12);
   timeString += getSeparator(m);
   timeString += getMinutes(m);
-  spln("");sp(F("\tWords: ")); sp(timeString);
-  spln("");spln("");
+  Serial.println("");Serial.print(F("Words: ")); Serial.print(timeString);
+  Serial.println("");Serial.println("");
 }
 
 void reset(boolean matrix[]) {
