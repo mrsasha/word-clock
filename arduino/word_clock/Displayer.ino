@@ -1,5 +1,3 @@
-#define PIXELS_DATA_PIN D2
-
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(LEDS_COUNT, PIXELS_DATA_PIN, NEO_GRB + NEO_KHZ800);
 uint32_t colorOn = pixels.Color(0, 255,255);
 uint32_t colorOff = pixels.Color(0,0,0);
